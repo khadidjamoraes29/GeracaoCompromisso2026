@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Geração Compromisso 2026 — uma jornada de chamado, fogo e missão."
+    />
+    <title>Geração Compromisso 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="experience" id="experience">
+      <div class="atmosphere" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
+
+      <header class="brand" aria-label="Geração Compromisso 2026">
+        <span class="brand__mark-crop" aria-hidden="true">
+          <img class="brand__mark" src="assets/geracao-compromisso-mark.svg" alt="" />
+        </span>
+        <p>Geração Compromisso <span>2026</span></p>
+      </header>
+
+      <section class="countdown-panel" id="countdown-panel" aria-labelledby="countdown-title">
+        <p class="eyebrow">A jornada está prestes a começar</p>
+        <h1 id="countdown-title">O tempo do<br /><em>despertar</em> chegou.</h1>
+
+        <div class="countdown" aria-live="polite" aria-label="Contagem regressiva">
+          <div class="time-block">
+            <strong id="days">00</strong>
+            <span>dias</span>
+          </div>
+          <i aria-hidden="true">:</i>
+          <div class="time-block">
+            <strong id="hours">00</strong>
+            <span>horas</span>
+          </div>
+          <i aria-hidden="true">:</i>
+          <div class="time-block">
+            <strong id="minutes">00</strong>
+            <span>minutos</span>
+          </div>
+          <i aria-hidden="true">:</i>
+          <div class="time-block">
+            <strong id="seconds">00</strong>
+            <span>segundos</span>
+          </div>
+        </div>
+
+        <p class="event-date">06 e 07 de novembro</p>
+      </section>
+
+      <section class="reveal" id="reveal" aria-hidden="true">
+        <p class="eyebrow reveal__eyebrow">Geração Compromisso 2026</p>
+        <h1 class="manifesto" aria-label="Existe um chamado para despertar. Um fogo que incendeia. Uma missão para ser vivida.">
+          <span>Existe um <b>chamado</b> para <b>despertar.</b></span>
+          <span>Um <b>fogo</b> que <b>incendeia.</b></span>
+          <span>Uma <b>missão</b> para ser <b>vivida.</b></span>
+        </h1>
+
+        <div class="video-frame" id="video-frame">
+          <video id="launch-video" class="video-frame__media" preload="metadata" playsinline controls>
+            <source src="assets/videobase-gc2026.mp4" type="video/mp4" />
+            Seu navegador não oferece suporte a vídeos HTML5.
+          </video>
+          <div class="video-frame__placeholder" id="video-placeholder">
+            <span class="video-frame__line video-frame__line--top" aria-hidden="true"></span>
+            <button class="play-button" id="play-button" type="button" aria-label="Reproduzir vídeo">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 5.5v13l10-6.5z" /></svg>
+            </button>
+            <p>Assista ao vídeo de lançamento</p>
+            <span class="video-frame__line video-frame__line--bottom" aria-hidden="true"></span>
+          </div>
+        </div>
+        <p class="video-note" id="video-note" role="status"></p>
+      </section>
+
+      <p class="footer">Gerando compromisso. Acendendo futuros.</p>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
