@@ -151,14 +151,6 @@ h1 { margin: 0; }
   line-height: .78;
 }
 
-.event-date {
-  margin: 0;
-  font-size: clamp(.82rem, 1.7vw, 1.1rem);
-  font-weight: 600;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-}
-
 .reveal {
   z-index: 1;
   display: none;
