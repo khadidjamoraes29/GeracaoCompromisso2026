@@ -90,6 +90,33 @@ button, video { font: inherit; }
   transition: opacity .7s ease, transform .7s ease;
 }
 
+.event-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(.8rem, 2.1vw, 1.75rem);
+  margin: 0 auto 1.35rem;
+}
+
+.event-logo { display: block; height: auto; object-fit: contain; }
+.event-logo--geracao { width: clamp(7rem, 14vw, 10rem); }
+.event-logo--betania { width: clamp(8rem, 16vw, 11.5rem); }
+
+.event-logo-mark-crop {
+  display: grid;
+  width: clamp(3.2rem, 6vw, 4.6rem);
+  aspect-ratio: 1;
+  overflow: hidden;
+  place-items: center;
+}
+
+.event-logo--mark {
+  width: 177.78%;
+  max-width: none;
+  height: 100%;
+  object-fit: fill;
+}
+
 .eyebrow {
   margin: 0 0 1.25rem;
   color: var(--yellow);
@@ -114,6 +141,15 @@ h1 { margin: 0; }
   font-weight: 800;
   font-style: italic;
 }
+
+.countdown-panel h1.countdown-message {
+  display: grid;
+  gap: .08em;
+  font-size: clamp(2.2rem, 5.4vw, 5.15rem);
+  line-height: .98;
+}
+
+.countdown-message span { display: block; }
 
 .countdown {
   display: flex;
@@ -282,8 +318,15 @@ h1 { margin: 0; }
   .brand { gap: .45rem; }
   .brand__mark-crop { width: 2.8rem; }
   .brand p { font-size: .47rem; letter-spacing: .17em; }
-  .countdown { gap: .15rem; }
-  .time-block { min-width: 0; width: 23vw; }
+  .countdown-panel { margin: 2rem auto; }
+  .event-logos { gap: .7rem; margin-bottom: 1.15rem; }
+  .event-logo--geracao { width: 5.25rem; }
+  .event-logo--betania { width: 6.25rem; }
+  .event-logo-mark-crop { width: 2.8rem; }
+  .countdown-panel h1.countdown-message { font-size: clamp(1.7rem, 7.8vw, 2.45rem); line-height: 1.04; }
+  .countdown { width: 100%; gap: .1rem; margin-top: 2.25rem; }
+  .time-block { flex: 1 1 0; min-width: 0; width: auto; }
+  .countdown i { flex: 0 0 auto; }
   .time-block strong { font-size: clamp(2rem, 11vw, 3.1rem); }
   .countdown i { font-size: 1.8rem; }
   .time-block span { font-size: .44rem; letter-spacing: .09em; }

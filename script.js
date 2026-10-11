@@ -2,7 +2,7 @@
  * Ajuste somente esta data se quiser mudar a hora em que o conteúdo é liberado.
  * O sufixo -03:00 mantém o horário de Brasília, inclusive para visitantes de outros fusos.
  */
-const EVENT_DATE = new Date("2026-10-11T12:00:00-03:00");
+const EVENT_DATE = new Date("2026-11-07T00:00:00-03:00");
 
 const units = {
   days: document.querySelector("#days"),
