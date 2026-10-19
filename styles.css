@@ -26,8 +26,9 @@ button, video { font: inherit; }
   isolation: isolate;
   display: grid;
   min-height: 100svh;
-  overflow: hidden;
-  padding: clamp(1.5rem, 4vw, 3.5rem);
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: clamp(1.1rem, 3.5vw, 3.5rem);
   background:
     radial-gradient(circle at 52% 105%, rgba(235, 93, 36, .46), transparent 31rem),
     radial-gradient(circle at 8% 0%, rgba(245, 174, 35, .15), transparent 32rem),
@@ -85,36 +86,81 @@ button, video { font: inherit; }
   z-index: 1;
   align-self: center;
   width: min(100%, 64rem);
-  margin: clamp(3rem, 9vh, 7rem) auto;
+  min-width: 0;
+  margin: clamp(1.25rem, 4.5svh, 4rem) auto;
   text-align: center;
   transition: opacity .7s ease, transform .7s ease;
 }
 
-.event-logos {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(.8rem, 2.1vw, 1.75rem);
-  margin: 0 auto 1.35rem;
+.event-branding {
+  display: grid;
+  justify-items: center;
+  gap: clamp(.35rem, 1.2svh, .8rem);
+  margin: 0 auto clamp(1rem, 2.5svh, 1.75rem);
 }
 
-.event-logo { display: block; height: auto; object-fit: contain; }
-.event-logo--geracao { width: clamp(7rem, 14vw, 10rem); }
-.event-logo--betania { width: clamp(8rem, 16vw, 11.5rem); }
+.event-logo { display: block; max-width: none; height: auto; object-fit: contain; }
 
 .event-logo-mark-crop {
   display: grid;
-  width: clamp(3.2rem, 6vw, 4.6rem);
+  width: clamp(9.5rem, min(20vw, 24svh), 16.5rem);
   aspect-ratio: 1;
   overflow: hidden;
   place-items: center;
+  background: radial-gradient(circle, rgba(255, 203, 87, .09), transparent 68%);
+  filter: drop-shadow(0 .9rem 1.8rem rgba(0, 0, 0, .3));
 }
 
 .event-logo--mark {
   width: 177.78%;
-  max-width: none;
   height: 100%;
   object-fit: fill;
+}
+
+.supporting-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(.8rem, 2vw, 1.4rem);
+}
+
+.supporting-logo-frame {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  opacity: .82;
+}
+
+.supporting-logo-frame--geracao {
+  width: clamp(4.75rem, 7vw, 6rem);
+  aspect-ratio: 1.2;
+}
+
+.supporting-logo-frame--betania {
+  width: clamp(5.5rem, 8vw, 6.9rem);
+  aspect-ratio: 1.85;
+}
+
+.supporting-logo-frame .event-logo {
+  position: absolute;
+}
+
+.supporting-logo-frame--geracao .event-logo {
+  top: -29%;
+  left: -74.1%;
+  width: 248.3%;
+}
+
+.supporting-logo-frame--betania .event-logo {
+  top: -42.7%;
+  left: -33.2%;
+  width: 168.4%;
+}
+
+.supporting-logos__divider {
+  width: 1px;
+  height: clamp(2rem, 5vw, 3.2rem);
+  background: linear-gradient(transparent, rgba(255, 203, 87, .7), transparent);
 }
 
 .eyebrow {
@@ -144,26 +190,31 @@ h1 { margin: 0; }
 
 .countdown-panel h1.countdown-message {
   display: grid;
+  width: 100%;
+  min-width: 0;
   gap: .08em;
-  font-size: clamp(2.2rem, 5.4vw, 5.15rem);
+  font-size: clamp(2rem, min(5.4vw, 7.6svh), 5.15rem);
   line-height: .98;
 }
 
-.countdown-message span { display: block; }
+.countdown-message span { display: block; min-width: 0; max-width: 100%; }
 
 .countdown {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
   justify-content: center;
   align-items: start;
+  width: min(100%, 48rem);
+  min-width: 0;
   gap: clamp(.35rem, 1.7vw, 1.3rem);
-  margin: clamp(2.5rem, 7vh, 4.5rem) auto 2rem;
+  margin: clamp(2rem, 5svh, 4rem) auto 0;
 }
 
-.time-block { display: grid; min-width: clamp(3.6rem, 10vw, 7rem); }
+.time-block { display: grid; min-width: 0; }
 
 .time-block strong {
   color: var(--cream);
-  font-size: clamp(2.4rem, 8vw, 6.8rem);
+  font-size: clamp(2.2rem, min(8vw, 10svh), 6.8rem);
   font-weight: 700;
   line-height: .83;
   letter-spacing: -.09em;
@@ -186,6 +237,79 @@ h1 { margin: 0; }
   font-weight: 700;
   line-height: .78;
 }
+
+.ticket-button {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  min-height: 3.55rem;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: clamp(1.75rem, 4svh, 3rem);
+  padding: .68rem .72rem .68rem clamp(1.5rem, 3vw, 2.1rem);
+  color: var(--black);
+  border: 1px solid rgba(255, 255, 255, .24);
+  border-radius: 999px;
+  background: linear-gradient(110deg, #ffd66e 0%, var(--yellow) 42%, var(--gold) 72%, var(--orange) 115%);
+  background-size: 180% 100%;
+  box-shadow: 0 .9rem 2.7rem rgba(235, 93, 36, .28), inset 0 1px 0 rgba(255, 255, 255, .45);
+  font-size: clamp(.72rem, 1.2vw, .84rem);
+  font-weight: 800;
+  letter-spacing: .12em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-position .35s ease, box-shadow .25s ease, transform .25s ease;
+}
+
+.ticket-button::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 24%, rgba(255, 255, 255, .48) 46%, transparent 68%);
+  content: "";
+  pointer-events: none;
+  transform: translateX(-130%);
+  transition: transform .6s ease;
+}
+
+.ticket-button > span {
+  position: relative;
+  z-index: 1;
+}
+
+.ticket-button:hover {
+  background-position: 100% 0;
+  box-shadow: 0 1.1rem 3.2rem rgba(235, 93, 36, .42), inset 0 1px 0 rgba(255, 255, 255, .5);
+  transform: translateY(-3px) scale(1.015);
+}
+
+.ticket-button:hover::before { transform: translateX(130%); }
+
+.ticket-button:active { transform: translateY(0) scale(.985); }
+
+.ticket-button:focus-visible {
+  outline: 3px solid var(--cream);
+  outline-offset: 4px;
+}
+
+.ticket-button__arrow {
+  display: grid;
+  width: 2.15rem;
+  height: 2.15rem;
+  flex: 0 0 2.15rem;
+  place-items: center;
+  color: var(--yellow);
+  border-radius: 50%;
+  background: var(--black);
+  box-shadow: 0 .25rem .75rem rgba(7, 7, 7, .22);
+  font-size: 1.1em;
+  transition: color .2s ease, transform .25s ease;
+}
+
+.ticket-button:hover .ticket-button__arrow { color: var(--cream); transform: rotate(-8deg) translateX(.12rem); }
 
 .reveal {
   z-index: 1;
@@ -313,24 +437,65 @@ h1 { margin: 0; }
 @keyframes enter { to { opacity: 1; transform: translateY(0); } }
 @keyframes video-enter { to { opacity: 1; transform: scale(1); } }
 
+@media (max-width: 768px) {
+  .experience { padding: clamp(1.1rem, 4vw, 1.75rem); }
+  .countdown-panel { margin: 1.25rem auto 2rem; }
+  .event-logo-mark-crop { width: clamp(11rem, 34vw, 12.5rem); }
+  .countdown-panel h1.countdown-message { font-size: clamp(1.8rem, 7.2vw, 3.2rem); line-height: 1.02; }
+  .countdown { margin-top: clamp(1.75rem, 5vw, 2.5rem); }
+  .time-block strong { font-size: clamp(2.15rem, 10vw, 4.25rem); }
+}
+
 @media (max-width: 520px) {
   .experience { padding: 1.5rem 1.1rem; }
   .brand { gap: .45rem; }
   .brand__mark-crop { width: 2.8rem; }
   .brand p { font-size: .47rem; letter-spacing: .17em; }
   .countdown-panel { margin: 2rem auto; }
-  .event-logos { gap: .7rem; margin-bottom: 1.15rem; }
-  .event-logo--geracao { width: 5.25rem; }
-  .event-logo--betania { width: 6.25rem; }
-  .event-logo-mark-crop { width: 2.8rem; }
+  .event-branding { margin-bottom: 1.15rem; }
+  .supporting-logos { gap: .65rem; }
+  .supporting-logo-frame--geracao { width: 4.1rem; }
+  .supporting-logo-frame--betania { width: 4.8rem; }
+  .supporting-logos__divider { height: 2.2rem; }
   .countdown-panel h1.countdown-message { font-size: clamp(1.7rem, 7.8vw, 2.45rem); line-height: 1.04; }
   .countdown { width: 100%; gap: .1rem; margin-top: 2.25rem; }
-  .time-block { flex: 1 1 0; min-width: 0; width: auto; }
-  .countdown i { flex: 0 0 auto; }
   .time-block strong { font-size: clamp(2rem, 11vw, 3.1rem); }
   .countdown i { font-size: 1.8rem; }
   .time-block span { font-size: .44rem; letter-spacing: .09em; }
+  .ticket-button { width: min(100%, 19rem); margin-top: 1.75rem; }
   .manifesto { font-size: clamp(1.48rem, 8.3vw, 2.4rem); line-height: 1.04; }
+}
+
+@media (max-width: 360px) {
+  .experience { padding-inline: .8rem; }
+  .event-logo-mark-crop { width: 10.5rem; }
+  .supporting-logo-frame--geracao { width: 3.8rem; }
+  .supporting-logo-frame--betania { width: 4.5rem; }
+  .countdown-panel h1.countdown-message { font-size: 1.55rem; }
+  .time-block strong { font-size: 1.85rem; }
+}
+
+@media (max-height: 1050px) and (min-width: 769px) {
+  .countdown-panel { width: min(100%, 74rem); }
+  .event-logo-mark-crop { width: 12.25rem; }
+  .supporting-logo-frame--geracao { width: 4.5rem; }
+  .supporting-logo-frame--betania { width: 5.3rem; }
+  .countdown-panel h1.countdown-message { font-size: clamp(2.2rem, min(4.2vw, 6.2svh), 3.75rem); }
+  .countdown { margin-top: 1.75rem; }
+  .time-block strong { font-size: clamp(2.4rem, min(7vw, 8.5svh), 5rem); }
+  .ticket-button { margin-top: 1.6rem; }
+}
+
+@media (max-height: 760px) and (min-width: 769px) {
+  .event-logo-mark-crop { width: 9.75rem; }
+  .event-branding { gap: .25rem; margin-bottom: .8rem; }
+  .supporting-logo-frame--geracao { width: 4rem; }
+  .supporting-logo-frame--betania { width: 4.6rem; }
+  .eyebrow { margin-bottom: .8rem; }
+  .countdown-panel h1.countdown-message { font-size: clamp(2rem, 5.2svh, 3rem); }
+  .countdown { margin-top: 1.5rem; }
+  .time-block strong { font-size: clamp(2.4rem, 8svh, 4rem); }
+  .ticket-button { margin-top: 1.4rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
